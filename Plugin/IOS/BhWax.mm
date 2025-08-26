@@ -38,8 +38,13 @@ extern "C"{
 - (void (^)())asVoidNiladicBlock;
 - (void (^)( NSObject *))asVoidMonadicBlock;
 - (void (^)( NSObject *, NSObject *))asVoidDyadicBlock;
+- (void (^)( NSObject *, NSObject *))asVoidDyadicBlockName:(NSString *)name;
+- (void (^)( BOOL, NSObject *))asVoidDyadicBlockBO;
+- (void (^)(BOOL p1, NSObject * p2))asVoidDyadicBlockBOName:(NSString *)name;
 - (void (^)( NSObject *, NSObject *, NSObject*))asVoidTriadicBlock;
-- (void (^)( int))asVoidMonadicIntBlock;
+- (void (^)(NSObject *p1, int p2, NSObject *p3))asVoidTriadicBlockOIO;
+- (void (^)(NSObject *p1, int p2, NSObject *p3))asVoidTriadicBlockIOO;
+- (void (^)( NSInteger))asVoidMonadicIntBlock;
 @end
 
 @implementation WaxFunction (Blocks)
@@ -51,50 +56,142 @@ extern "C"{
 
 -(void (^)())asVoidNiladicBlock {
     return [^() {
+        [wax_globalLock() lock];
         lua_State *L = wax_currentLuaState();
         wax_fromInstance(L, self);
         lua_call(L, 0, 0);
+        [wax_globalLock() unlock];
     } copy];
 }
 
 -(void (^)(NSObject *p))asVoidMonadicBlock {
     return [^(NSObject *param) {
+        [wax_globalLock() lock];
         lua_State *L = wax_currentLuaState();
         wax_fromInstance(L, self);
         wax_fromInstance(L, param);
         lua_call(L, 1, 0);
+        [wax_globalLock() unlock];
     } copy];
 }
 
 -(void (^)(NSObject *p1, NSObject * p2))asVoidDyadicBlock {
     return [^(NSObject *param1, NSObject *param2) {
+        void (^block)();
+        block = ^() {
+            [wax_globalLock() lock];
+            lua_State *L = wax_currentLuaState();
+            wax_fromInstance(L, self);
+            wax_fromInstance(L, param1);
+            wax_fromInstance(L, param2);
+            lua_call(L, 2, 0);
+            [wax_globalLock() unlock];
+        };
+        if (![NSThread isMainThread]) {
+            [[NSOperationQueue mainQueue] addOperationWithBlock:block];
+        } else {
+            block();
+        }
+    } copy];
+}
+
+-(void (^)(NSObject *p1, NSObject * p2))asVoidDyadicBlockName:(NSString *)name {
+    return [^(NSObject *param1, NSObject *param2) {
+        void (^block)();
+        block = ^() {
+            [wax_globalLock() lock];
+            lua_State *L = wax_currentLuaState();
+            wax_fromInstance(L, self);
+            wax_fromInstance(L, param1);
+            wax_fromInstance(L, param2);
+            lua_call(L, 2, 0);
+            [wax_globalLock() unlock];
+        };
+        if (![NSThread isMainThread]) {
+            NSLog(@"Queing Block%@", name);
+            [[NSOperationQueue mainQueue] addOperationWithBlock:block];
+        } else {
+            NSLog(@"Calling Block %@", name);
+            block();
+        }
+    } copy];
+}
+
+-(void (^)(BOOL p1, NSObject * p2))asVoidDyadicBlockBO {
+    return [^(BOOL param1, NSObject *param2) {
+        [wax_globalLock() lock];
         lua_State *L = wax_currentLuaState();
         wax_fromInstance(L, self);
-        wax_fromInstance(L, param1);
+        lua_pushboolean(L, param1);
         wax_fromInstance(L, param2);
         lua_call(L, 2, 0);
+        [wax_globalLock() unlock];
+    } copy];
+}
+
+-(void (^)(BOOL p1, NSObject * p2))asVoidDyadicBlockBOName:(NSString *)name {
+    return [^(BOOL param1, NSObject *param2) {
+        [wax_globalLock() lock];
+        lua_State *L = wax_currentLuaState();
+        wax_fromInstance(L, self);
+        lua_pushboolean(L, param1);
+        wax_fromInstance(L, param2);
+        NSLog(@"Calling VDBO %@", name);
+        lua_call(L, 2, 0);
+        [wax_globalLock() unlock];
     } copy];
 }
 
 -(void (^)(NSObject *p1, NSObject * p2, NSObject *p3))asVoidTriadicBlock {
     return [^(NSObject *param1, NSObject *param2, NSObject *param3) {
+        [wax_globalLock() lock];
         lua_State *L = wax_currentLuaState();
         wax_fromInstance(L, self);
         wax_fromInstance(L, param1);
         wax_fromInstance(L, param2);
         wax_fromInstance(L, param3);
         lua_call(L, 3, 0);
+        [wax_globalLock() unlock];
+    } copy];
+}
+
+-(void (^)(NSObject *p1, int p2, NSObject *p3))asVoidTriadicBlockOIO {
+    return [^(NSObject *param1, int param2, NSObject *param3) {
+        [wax_globalLock() lock];
+        lua_State *L = wax_currentLuaState();
+        wax_fromInstance(L, self);
+        wax_fromInstance(L, param1);
+        lua_pushinteger(L, param2);
+        wax_fromInstance(L, param3);
+        lua_call(L, 3, 0);
+        [wax_globalLock() unlock];
+    } copy];
+}
+
+-(void (^)(NSObject *p1, int p2, NSObject *p3))asVoidTriadicBlockIOO {
+    return [^(int param1, NSObject *param2, NSObject *param3) {
+        [wax_globalLock() lock];
+        lua_State *L = wax_currentLuaState();
+        wax_fromInstance(L, self);
+        lua_pushinteger(L, param1);
+        wax_fromInstance(L, param2);
+        wax_fromInstance(L, param3);
+        lua_call(L, 3, 0);
+        [wax_globalLock() unlock];
     } copy];
 }
 
 -(void (^)(NSInteger p))asVoidMonadicIntBlock {
     return [^(NSInteger param) {
+        [wax_globalLock() unlock];
         lua_State *L = wax_currentLuaState();
         wax_fromInstance(L, self);
         lua_pushnumber(L, param);
         lua_call(L, 1, 0);
+        [wax_globalLock() unlock];
     } copy];
 }
+
 @end
 
 // REFLECTION ***
@@ -191,13 +288,13 @@ static int loader(lua_State *L)
     };
     luaL_register(L, "wax", functionlist);
 
-    lua_pushcfunction(L, getRootViewController);
+    lua_pushcfunction(L, getRootViewController, "getRootViewController");
    	lua_setglobal(L, "getRootViewController");
     
-    lua_pushcfunction(L, getPathForFile);
+    lua_pushcfunction(L, getPathForFile, "getPathForFile");
    	lua_setglobal(L, "getPathForFile");
     
-    lua_pushcfunction(L, logSetLevel);
+    lua_pushcfunction(L, logSetLevel, "logSetLevel");
    	lua_setglobal(L, "logSetLevel");
 
     //return the pointer to the plugin
@@ -212,7 +309,7 @@ static void g_initializePlugin(lua_State* L)
     lua_getglobal(L, "package");
     lua_getfield(L, -1, "preload");
 
-    lua_pushcfunction(L, loader);
+    lua_pushcfunction(L, loader, "loader");
     lua_setfield(L, -2, "wax");
 
     lua_pop(L, 2);
