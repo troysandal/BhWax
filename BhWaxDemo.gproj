@@ -6,10 +6,10 @@
         <exports/>
     </properties>
     <file source="Autocomplete.lua"/>
-    <file source="BhUIViewFrame.lua" excludeFromExecution="1"/>
+    <file source="BhUIViewFrame.lua"/>
     <file source="BhWaxAutoComplete.lua"/>
     <file source="BhWaxDemo.lua"/>
-    <file source="BhWaxPhysicsDemo.lua"/>
+    <file source="BhWaxPhysicsDemo.lua" excludeFromExecution="1"/>
     <file source="BhWaxSceneDemo.lua"/>
     <file source="IosActivitySpinner.lua"/>
     <file source="IosImagePicker.lua"/>
