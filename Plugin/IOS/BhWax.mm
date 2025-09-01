@@ -198,6 +198,7 @@ extern "C"{
 // REFLECTION ***
 // Lets add some simple reflection capability to the standard Cocoa runtime. This will
 // allow applications to wind through the class hierarchy and discover available methods etc.
+// Used by BhWaxAutoComplete Demo app.
 
 @interface NSObject (BhRuntime)
 +(NSArray *)bhSubclassNames;
