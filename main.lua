@@ -33,7 +33,7 @@ for the image picker demo in [BhWaxDemo.lua]).
  
      BhWaxDemo.new()
      BhWaxPhysicsDemo.new()
-	 BhWaxSceneDemo.new()
+     BhWaxSceneDemo.new()
      BhAutoComplete.new()
 	 
 
@@ -91,10 +91,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SO
 
 -- Enable ONE of the following lines depending on which demo you want to run
 
-   BhWaxDemo.new()
+-- BhWaxDemo.new()
 -- BhWaxPhysicsDemo.new()
 -- BhWaxSceneDemo.new()
--- BhAutoComplete.new()
+BhWaxAutocomplete.new()
 
 
 

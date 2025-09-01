@@ -50,6 +50,8 @@ function AutocompleteGenerator:getClassNamesMatching(filter, exclusions)
 end
 
 function AutocompleteGenerator:generateAutocompleteListForClassesMatching(inclusions, exclusions)
+  print("Generating Autocomplete List")
+  
 	self.classMethods={}
 	self.instanceMethods={}
 	for i, filter in ipairs(inclusions) do
@@ -72,9 +74,23 @@ function AutocompleteGenerator:generateAutocompleteListForClassesMatching(inclus
 end
 
 function AutocompleteGenerator:collateAutocompleteForClass(class)
+  if not isNSObject(class) then
+    print("WARNING - "..class.." isn't an NSObject")
+    return
+  end
 	self:collateAutocompleteForMethods(class, true) 
 	self:collateAutocompleteForMethods(class, false)
 	self:collateAutocompleteForProperties(class)
+end
+
+function isNSObject(class)
+  local cls = _G[class]
+  if (cls) then
+      if cls.bhClass then
+        return true
+       end
+  end
+  return false
 end
 
 function AutocompleteGenerator:collateAutocompleteForMethods(class, isClass)

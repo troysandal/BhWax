@@ -46,9 +46,10 @@ function IosActivitySpinner:init(labelText)
 	local spinning=UIActivityIndicatorView:initWithActivityIndicatorStyle(UIActivityIndicatorViewStyleWhiteLarge)
 	spinning:setFrame(CGRect(42, 54, 37, 37))
 	spinning:startAnimating()	
-	
+	loading = spinning
+  
 	if labelText then
-		local loading=UIView:initWithFrame(CGRect(0, 0, 120, 120))
+		loading=UIView:initWithFrame(CGRect(0, 0, 120, 120))
 		loading:layer():setCornerRadius(15)
 		loading:setOpaque(false)
 		loading:setBackgroundColor(UIColor:colorWithWhite_alpha(0, 0.6))
@@ -61,8 +62,6 @@ function IosActivitySpinner:init(labelText)
 		label:setBackgroundColor(UIColor:clearColor())
 		loading:addSubview(label)
 		loading:addSubview(spinning)
-	else
-		loading=spinning
 	end
 	
 	local rootView=getRootViewController():view()

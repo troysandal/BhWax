@@ -85,7 +85,7 @@ function IosImagePicker:pickImage(sourceType, handlerFunc, handlerTarget) --` @p
 	--   	    uiImage:savePNG("|D|pickedImage.png")
 	--      end
 	
-self.handlerFunc=handlerFunc
+	self.handlerFunc=handlerFunc
 	self.handlerTarget=handlerTarget
 	
 	-- There appears to be an issue where a crash will occur if a GC occurs in an ENTER_FRAME handler
@@ -131,7 +131,7 @@ function IosImagePicker:pickImageIPhone(sourceType)
 	self.picker=picker
 	
 	local rootController=getRootViewController()
-	rootController:presentModalViewController_animated(picker, true)
+	rootController:presentViewController_animated_completion(picker, true, nil)
 	return true
 end
 

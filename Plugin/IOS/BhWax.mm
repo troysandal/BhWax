@@ -211,7 +211,8 @@ extern "C"{
 +(NSArray *)bhSubclassNames {
     NSMutableArray *subclasses = [NSMutableArray array];
     unsigned count = objc_getClassList(NULL, 0);
-    if (count>0) {    Class *classes = (Class*)malloc(count * sizeof(classes));
+    if (count>0) {
+        Class *classes = (Class*)malloc(count * sizeof(classes)); // TODO: sizeof(Class) ????
         objc_getClassList(classes, count);
 
         for(unsigned i=0; i<count; i++)
