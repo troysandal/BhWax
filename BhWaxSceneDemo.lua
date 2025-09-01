@@ -30,11 +30,14 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SO
 function speak(text, lang)
 	-- Function to speak (asynchronously) a piece of text in a given language.
 	--
-	local textToSend=text:gsub(" ", "+")
-	local ttsUrl=string.format("http://translate.google.com/translate_tts?tl=%s&q=%s", lang or "en", textToSend)
-	local ttsData = NSData:dataWithContentsOfURL(NSURL:URLWithString(ttsUrl))
-	local avPlayer = AVAudioPlayer:initWithData_error(ttsData, nil) 
-	avPlayer:play()
+	local textToSend=text:gsub(" ", "%%20")
+	local ttsUrl=string.format("https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=%s&q=%s", lang or "en", textToSend)
+  local callback = function(ttsData)
+    print("Data has arrived")
+	  local avPlayer = AVAudioPlayer:initWithData_error(ttsData, nil) 
+	  avPlayer:play()
+  end
+  wax.http.get({ttsUrl, method="get", callback = callback, format = "binary"})
 end
 
 DemoScene1=Core.class(Sprite)

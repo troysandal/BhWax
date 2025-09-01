@@ -16,7 +16,9 @@
     <file source="init.lua"/>
     <file source="main.lua"/>
     <folder name="Wax">
+        <file source="../../wax/lib/stdlib/ext/block.lua"/>
         <file source="../../wax/lib/stdlib/enums.lua"/>
+        <file source="../../wax/lib/stdlib/ext/http.lua"/>
         <file source="../../wax/lib/stdlib/structs.lua"/>
         <file source="../../wax/lib/stdlib/waxClass.lua"/>
     </folder>

@@ -29,6 +29,7 @@
 extern "C"{
     #include "wax.h"
     #include "wax_helpers.h"
+    #include "wax_http.h"
 }
 
 @interface WaxFunction : NSObject {}
@@ -306,6 +307,7 @@ static void g_initializePlugin(lua_State* L)
 {
     wax_setCurrentLuaState(L);
     wax_setup();
+    luaopen_wax_http(L);
     
     lua_getglobal(L, "package");
     lua_getfield(L, -1, "preload");
