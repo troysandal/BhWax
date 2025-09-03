@@ -5,6 +5,7 @@
 .tmp
 Plugin/IOS/hotwax/build
 Plugin/wax
+Player/WaxPlayer
 
 # Xcode
 
