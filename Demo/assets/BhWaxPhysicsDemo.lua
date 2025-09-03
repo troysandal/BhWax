@@ -34,7 +34,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SO
 
 require "box2d"
 require "accelerometer"
-require "BhUIViewFrame"
 
 BhWaxPhysicsDemo=Core.class(Sprite)
 
@@ -106,7 +105,7 @@ function BhWaxPhysicsDemo:init()
 	bg:endPath()
 	self:addChild(bg)
 	
-	local button=Bitmap.new(Texture.new("Images/HotWax.png"))
+	local button=Bitmap.new(Texture.new("Images/Art/HotWax.png"))
 	button:setAnchorPoint(0.52, 0.48)
 	button:setPosition(w/2, h/2)
 	self:addChild(button)	

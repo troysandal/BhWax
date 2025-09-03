@@ -2,6 +2,7 @@
 -- This gives all other Lua files immediate access to Objective-C via Wax.
 
 require "wax"
+require "wax.init"
 
 -- This metatable magic allows for undefined Lua globals to be looked up in
 -- the Wax class dictionary.

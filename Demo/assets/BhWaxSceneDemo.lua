@@ -27,6 +27,8 @@ DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 --]]
 
+require "wax.ext.http"
+
 function speak(text, lang)
 	-- Function to speak (asynchronously) a piece of text in a given language.
 	--

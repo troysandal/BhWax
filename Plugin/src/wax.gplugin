@@ -1,0 +1,16 @@
+<plugin
+ name="wax"
+ description="Lua Objective-C Bridge.  See https://github.com/troysandal/BhWax">
+ <target name="iOS,MacOSX">
+  <lua><![CDATA[
+    -- Copy Obj-C source files
+    local pname="wax" -- plugin name
+    local srcDir="[[[sys.pluginDir]]]/source/iOS/" -- source directory
+    local tgtDir=Export.getProperty("project.name").."/Plugins/"..pname
+    Export.mkdir(tgtDir)
+    Export.recursiveCopy(pname,srcDir,tgtDir,"*.m;*.mm;*.c;*.h;*.cpp")
+
+    -- See temp.lua - for Groups, add by hand for now
+    ]]></lua>
+ </target>
+</plugin>

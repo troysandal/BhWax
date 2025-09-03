@@ -49,7 +49,7 @@ function BhWaxAutocomplete:init()
 	bg:endPath()
 	self:addChild(bg)
 	
-	local button=Bitmap.new(Texture.new("Images/HotWax.png"))
+	local button=Bitmap.new(Texture.new("Images/Art/HotWax.png"))
 	button:setAnchorPoint(0.52, 0.48)
 	button:setPosition(w/2, h/2)
 	self:addChild(button)	

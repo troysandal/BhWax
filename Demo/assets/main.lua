@@ -93,8 +93,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SO
 
 -- BhWaxDemo.new()
 -- BhWaxPhysicsDemo.new()
-BhWaxSceneDemo.new()
--- BhWaxAutocomplete.new()
+-- BhWaxSceneDemo.new()
+BhWaxAutocomplete.new()
 
 
 

@@ -29,6 +29,8 @@
 extern "C"{
     #include "wax.h"
     #include "wax_helpers.h"
+    // EXTENSIONS - Add optional wax extension headers here, initialize
+    // in g_initializePlugin()
     #include "wax_http.h"
 }
 
@@ -308,6 +310,7 @@ static void g_initializePlugin(lua_State* L)
 {
     wax_setCurrentLuaState(L);
     wax_setup();
+    // EXTENSIONS - Initialize optional wax extensions
     luaopen_wax_http(L);
     
     lua_getglobal(L, "package");

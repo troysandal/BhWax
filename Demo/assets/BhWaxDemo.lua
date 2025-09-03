@@ -17,7 +17,6 @@ video showing how to get started with Wax and Gideros.
 additional ObjectiveC file (UIImage+Save.m), which
 contains a protocol extension to allow [UIImage] objects to resize and save themselves.*
 
-[Hot Wax]: http://bowerhaus.eu/blog/files/hot_wax.html
 [UIImage]: http://developer.apple.com/library/ios/#documentation/uikit/reference/UIImage_Class/Reference/Reference.html
  
 @private
@@ -60,7 +59,7 @@ function BhWaxDemo:init()
 	bg:endPath()
 	self:addChild(bg)
 	
-	local button=Bitmap.new(Texture.new("Images/HotWax.png"))
+	local button=Bitmap.new(Texture.new("Images/Art/HotWax.png"))
 	button:setAnchorPoint(0.52, 0.48)
 	button:setPosition(w/2, h/2)
 	self:addChild(button)	
