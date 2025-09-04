@@ -1,7 +1,7 @@
 # Gideros Plugin for Wax
 **WARNING** - Work in Progress - [See Tasklist](#task-list)
 
-This repo generates a Gideros plugin for wax.  You should not check out this repo directly, it should be checked out as a submodule of [BhGideros](https://github.com/troysandal/BhGideros).
+This repo generates a Gideros plugin for wax and installs it in the Gideros user folder.  Once installed you can add wax to any Gideros project.
 
 ## Build Plugin
 ``` sh
