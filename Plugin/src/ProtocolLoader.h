@@ -5,6 +5,7 @@
 
 #import <UIKit/UIKit.h>
 #import <GameKit/GameKit.h>
+#import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMailComposeViewController.h>
 
 // AWB: 25/9/12 - Introduced alternative format for generating these extenal protocol references.
@@ -20,6 +21,7 @@ BOOL wax_protocol_loader() {
          @protocol(UIAlertViewDelegate) &&
          @protocol(UISearchBarDelegate) &&
          @protocol(UITextViewDelegate) &&
+         @protocol(UITextFieldDelegate) &&
          @protocol(UITabBarControllerDelegate) &&
          @protocol(UISearchDisplayDelegate) &&
     
