@@ -16,5 +16,5 @@ Creates a Gideros Player with Wax installed.  Handy for projects where you want 
 1. Select WaxPlayer target
 1. Select Build Phases tab
 1. Expand Compile Sources
-1. Select all the Wax files add and add the `-fno-objc-arc` flag to turn ARC off.  Optionally, turn ARC off for the entire project (in Build Settings) then add `-fobjc-arc` to the 4 non wax project files.
+1. Select all the Wax files add and add the `-fno-objc-arc` flag to turn ARC off.  Do not add this flag to EAGLView.m, main.m, AppDelegate.m or ViewController.m. 
 
