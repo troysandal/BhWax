@@ -7,6 +7,12 @@ Plugin/IOS/hotwax/build
 Plugin/wax
 Player/WaxPlayer
 
+# too big for github, we put it in dropbox
+libgideros.a
+libgvfs.a
+liblua.a
+libopenal.a
+
 # Xcode
 
 ## Build generated
