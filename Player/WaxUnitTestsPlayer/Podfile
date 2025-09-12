@@ -1,0 +1,11 @@
+source 'https://github.com/CocoaPods/Specs.git'
+target 'WaxUnitTests iOS' do
+#TAG-GIDEROS-POD-IOS
+end
+target 'WaxUnitTests AppleTV' do
+#TAG-GIDEROS-POD-ATV
+end
+target 'WaxUnitTests Mac' do
+#TAG-GIDEROS-POD-MAC
+end
+
