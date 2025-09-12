@@ -1,5 +1,5 @@
 # Gideros Plugin for Wax
-**WARNING** - Work in Progress - [See Tasklist](#task-list)
+**WARNING** - Work in Progress - [See Tasklist](#task-list) and [project Issues](https://github.com/troysandal/BhWax/issues).
 
 This repo generates a Gideros plugin for wax and installs it in the Gideros user folder.  Once installed you can add wax to any Gideros project.
 
@@ -21,10 +21,8 @@ This repo generates a Gideros plugin for wax and installs it in the Gideros user
 
 
 ## Task List
-- [x] Recursively copy all .lua files 
-- [x] Recursively copy `source/iOS` to `Plugins/wax`
 - [ ] Recursively create Groups for all files in `Plugins/wax` (needs [this fix](https://github.com/gideros/gideros/commit/61d8c193df3fbd03497d357ea968d7abca3d4c7e#diff-072afe2dfc60286557294ed7b0229e6671a9ded5c11780a43ef34802bb6857b7R103))
-- [ ] Configure ARC
+- [ ] Auto-Configure ARC
 
 
 # Bugs
