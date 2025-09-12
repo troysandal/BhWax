@@ -32,6 +32,8 @@ extern "C"{
     // EXTENSIONS - Add optional wax extension headers here, initialize
     // in g_initializePlugin()
     #include "wax_http.h"
+    #include "wax_json.h"
+    #include "wax_xml.h"
 }
 
 @interface WaxFunction : NSObject {}
@@ -312,6 +314,8 @@ static void g_initializePlugin(lua_State* L)
     wax_setup();
     // EXTENSIONS - Initialize optional wax extensions
     luaopen_wax_http(L);
+    luaopen_wax_xml(L);
+    luaopen_wax_json(L);
     
     lua_getglobal(L, "package");
     lua_getfield(L, -1, "preload");
