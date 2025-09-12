@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-    <properties scaleMode="0" logicalWidth="320" logicalHeight="480" windowWidth="0" windowHeight="0" autorotation="0" orientation="0" fps="60" vsync="0" version="1.0" version_code="1" build_number="1" mainluaOnly="0" retinaDisplay="0" mouseToTouch="1" touchToMouse="1" mouseTouchOrder="0" architecture="1" exportMode="0" iosDevice="0" ios_bundle="com.yourdomain.yourapp-ios" atv_bundle="com.yourdomain.yourapp-atv" macos_bundle="com.yourdomain.yourapp-macos" macos_category="5" qtexp_platform="0" qtexp_org="GiderosMobile" qtexp_domain="giderosmobile.com" osx_bundle="com.yourdomain." osx_signingId="" osx_installerId="" osx_category="5" winrt_org="GiderosMobile" winrt_package="com.yourdomain.yourapp" html5_host="" html5_crash="" html5_mem="256" html5_pack="0" html5_wasm="0" html5_symbols="0" html5_fbinstant="0" html5_pwa="0" html5_fbload="100" encryptCode="0" encryptAssets="0" app_icon="" tv_icon="" disableSplash="0" backgroundColor="#ffffff" splash_h_image="" splash_v_image="" app_name="" splashScaleMode="0">
+    <properties scaleMode="0" logicalWidth="320" logicalHeight="480" windowWidth="0" windowHeight="0" autorotation="0" orientation="0" fps="60" vsync="0" version="1.0" version_code="1" build_number="1" mainluaOnly="1" retinaDisplay="0" mouseToTouch="1" touchToMouse="1" mouseTouchOrder="0" architecture="1" exportMode="0" iosDevice="0" ios_bundle="com.yourdomain.yourapp-ios" atv_bundle="com.yourdomain.yourapp-atv" macos_bundle="com.yourdomain.yourapp-macos" macos_category="5" qtexp_platform="0" qtexp_org="GiderosMobile" qtexp_domain="giderosmobile.com" osx_bundle="com.yourdomain." osx_signingId="" osx_installerId="" osx_category="5" winrt_org="GiderosMobile" winrt_package="com.yourdomain.yourapp" html5_host="" html5_crash="" html5_mem="256" html5_pack="0" html5_wasm="0" html5_symbols="0" html5_fbinstant="0" html5_pwa="0" html5_fbload="100" encryptCode="0" encryptAssets="0" app_icon="" tv_icon="" disableSplash="0" backgroundColor="#ffffff" splash_h_image="" splash_v_image="" app_name="WaxUnitTests" splashScaleMode="0">
         <imageScales/>
         <plugins>
             <plugin name="wax" enabled="1"/>
@@ -27,21 +27,53 @@
         </exports>
     </properties>
     <file name="assets/main.lua"/>
+    <folder name="wax">
+        <file name="assets/wax/enums.lua"/>
+        <file name="assets/wax/init.lua"/>
+        <file name="assets/wax/repl.lua"/>
+        <file name="assets/wax/structs.lua"/>
+        <file name="assets/wax/waxClass.lua"/>
+        <folder name="luaspec">
+            <file name="assets/wax/luaspec/init.lua"/>
+            <file name="assets/wax/luaspec/luamock.lua"/>
+            <file name="assets/wax/luaspec/luaspec.lua"/>
+        </folder>
+        <folder name="helpers">
+            <file name="assets/wax/helpers/WaxServer.lua"/>
+            <file name="assets/wax/helpers/autoload.lua"/>
+            <file name="assets/wax/helpers/base64.lua"/>
+            <file name="assets/wax/helpers/bit.lua"/>
+            <file name="assets/wax/helpers/cache.lua"/>
+            <file name="assets/wax/helpers/callback.lua"/>
+            <file name="assets/wax/helpers/frame.lua"/>
+            <file name="assets/wax/helpers/init.lua"/>
+            <file name="assets/wax/helpers/pickView.lua"/>
+            <file name="assets/wax/helpers/time.lua"/>
+        </folder>
+        <folder name="ext">
+            <file name="assets/wax/ext/block.lua"/>
+            <file name="assets/wax/ext/http.lua"/>
+            <file name="assets/wax/ext/init.lua"/>
+            <file name="assets/wax/ext/number.lua"/>
+            <file name="assets/wax/ext/string.lua"/>
+            <file name="assets/wax/ext/table.lua"/>
+        </folder>
+    </folder>
     <folder name="tests">
-        <file source="../../../../wax/tools/Tests/scripts/tests/base64Test.lua" excludeFromExecution="1"/>
-        <file source="../../../../wax/tools/Tests/scripts/tests/classTest.lua" excludeFromExecution="1"/>
-        <file source="../../../../wax/tools/Tests/scripts/tests/init.lua" excludeFromExecution="1"/>
-        <file source="../../../../wax/tools/Tests/scripts/tests/instanceTest.lua" excludeFromExecution="1"/>
-        <file source="../../../../wax/tools/Tests/scripts/tests/jsonTest.lua" excludeFromExecution="1"/>
-        <file source="../../../../wax/tools/Tests/scripts/tests/objcToLuaTest.lua" excludeFromExecution="1"/>
-        <file source="../../../../wax/tools/Tests/scripts/tests/protocolTest.lua" excludeFromExecution="1"/>
-        <file source="../../../../wax/tools/Tests/scripts/tests/structTest.lua" excludeFromExecution="1"/>
-        <file source="../../../../wax/tools/Tests/scripts/tests/xmlTest.lua" excludeFromExecution="1"/>
+        <file source="../../../../wax/tools/Tests/scripts/tests/base64Test.lua"/>
+        <file source="../../../../wax/tools/Tests/scripts/tests/classTest.lua"/>
+        <file source="../../../../wax/tools/Tests/scripts/tests/init.lua"/>
+        <file source="../../../../wax/tools/Tests/scripts/tests/instanceTest.lua"/>
+        <file source="../../../../wax/tools/Tests/scripts/tests/jsonTest.lua"/>
+        <file source="../../../../wax/tools/Tests/scripts/tests/objcToLuaTest.lua"/>
+        <file source="../../../../wax/tools/Tests/scripts/tests/protocolTest.lua"/>
+        <file source="../../../../wax/tools/Tests/scripts/tests/structTest.lua"/>
+        <file source="../../../../wax/tools/Tests/scripts/tests/xmlTest.lua"/>
         <folder name="fixtures">
-            <file source="../../../../wax/tools/Tests/scripts/tests/fixtures/Bambi.lua" excludeFromExecution="1"/>
-            <file source="../../../../wax/tools/Tests/scripts/tests/fixtures/Deer.lua" excludeFromExecution="1"/>
-            <file source="../../../../wax/tools/Tests/scripts/tests/fixtures/ExtendedSimpleObject.lua" excludeFromExecution="1"/>
-            <file source="../../../../wax/tools/Tests/scripts/tests/fixtures/ProtocolSimpleObject.lua" excludeFromExecution="1"/>
+            <file source="../../../../wax/tools/Tests/scripts/tests/fixtures/Bambi.lua"/>
+            <file source="../../../../wax/tools/Tests/scripts/tests/fixtures/Deer.lua"/>
+            <file source="../../../../wax/tools/Tests/scripts/tests/fixtures/ExtendedSimpleObject.lua"/>
+            <file source="../../../../wax/tools/Tests/scripts/tests/fixtures/ProtocolSimpleObject.lua"/>
         </folder>
     </folder>
 </project>

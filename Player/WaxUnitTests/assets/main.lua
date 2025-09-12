@@ -11,7 +11,6 @@
   wax/tools/Tests
 ]]--
 
---require "wax"
 require "wax.init"
 
 require "tests"
