@@ -1,7 +1,7 @@
 *.tmp 
 *.bin
 *.md5
-*.pch
+# *.pch
 .tmp
 Plugin/IOS/hotwax/build
 Plugin/wax
