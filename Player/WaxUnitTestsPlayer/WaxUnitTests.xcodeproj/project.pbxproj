@@ -247,7 +247,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		054717792E74606C004CC511 /* Classes */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); name = Classes; path = /Users/troy/depot/wax/BhGideros/wax/tools/Tests/Classes; sourceTree = "<absolute>"; };
+		054717792E74606C004CC511 /* Classes */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); name = Classes; path = ../../../../wax/tools/Tests/Classes; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -506,7 +506,7 @@
 				054718482E7460C4004CC511 /* wax_struct.m */,
 			);
 			name = lib;
-			path = /Users/troy/depot/wax/BhGideros/wax/lib;
+			path = ../../../../wax/lib;
 			sourceTree = "<absolute>";
 		};
 		054718C32E74616E004CC511 /* src */ = {
@@ -517,7 +517,7 @@
 				054718C12E74616E004CC511 /* UIImage+Save.m */,
 			);
 			name = src;
-			path = /Users/troy/depot/wax/BhGideros/Bowerhaus/BhWax/Plugin/src;
+			path = ../../../BhWax/Plugin/src;
 			sourceTree = "<absolute>";
 		};
 		5F58D82915D925B400137D76 /* Plugins */ = {

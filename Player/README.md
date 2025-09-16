@@ -24,3 +24,5 @@ Creates a Gideros Player with Wax installed.  Handy for projects where you want 
 1. Choose any iPad or iPhone Destination with (Rosetta)
 1. Compile and Run
 
+# Wax Unit Tests
+Wax contains a set of unit tests that are loaded by `WaxUnitTests/WaxUnitTests.gproj`.  The WaxUnitTestPlayer XCode project is a Gideros player that hosts the classes and extensions needed to run the unit tests.  The Gideros and Xcode Project reference the wax tests, extensions and sources directly.  That means any changes you make to fix a unit test don't need to be copied back to the source project.
